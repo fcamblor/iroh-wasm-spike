@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>ADE</title>
+  <!-- PWA « Mes appareils » : page statique publiée à une adresse fixe ; elle joint l'instance
+       par iroh (ADR 0001, option F). Build : scripts/build-pwa.sh -->
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#16161a" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="ADE" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  
+  
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="./xterm-ae5fff20b9b7d4c7.css" integrity="sha384-8Xk9wy/gzEDUKrXtrmCFa2bBuK3BpjpDuL/p0SeKQX19Khl/M+lHOgD/CyYf7efP"/>
+  <link rel="stylesheet" href="./style-a77c5f0f9bee8615.css" integrity="sha384-oxdTKYVFwWtZpWlRXx0aG5vdIBktPMOdh9ck5oD+6Orirkzungondu3f5dpiVZRN"/>
+  
+  <script>window.__ADE_PWA__ = true;</script>
+  <!-- Avant le frontend : détourne fetch/WebSocket /api/… vers iroh. -->
+  <script type="module" src="ade-pwa.js"></script>
+  <script src="./xterm-eb2aabf777f80b8a.js" integrity="sha384-M169f14mRZOXm3hD/v2Ti0ThIT/RnAQagXA9nlE15yHAtrW19gdePJh/HaTzUOe/"></script>
+  <script src="./addon-fit-c9bfe7faa6957349.js" integrity="sha384-iF+jqbuti4XlB64clWgFWYEscb+UnSRv3VgVikGYZu+otNFnSHr7y7NcKfBnGizn"></script>
+  <script src="./term-d69eddde40220a49.js" integrity="sha384-VBsojRvyxUSdcBidcdJ7+wQoy/r9jwWlDPmx72WA+YUDhfVdzEpMVvBFPbN1Qm/3"></script>
+  
+<script type="module">
+import init, * as bindings from './ade-frontend-590ca056411912.js';
+const wasm = await init({ module_or_path: './ade-frontend-590ca056411912_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script>
+<link rel="modulepreload" href="./ade-frontend-590ca056411912.js" crossorigin="anonymous" integrity="sha384-hKkuWva4z46p4X5SMQMn8N3tYH/pUqK1dn1+wotSzA5TYSerVdI6LGTXhET59qC9"><link rel="preload" href="./ade-frontend-590ca056411912_bg.wasm" crossorigin="anonymous" integrity="sha384-mmklDOLtJT7MUFTvpqk6wYYUxD4cDlSXeI4FRIPylqHhqzb0rHeFjM+qqg2BciVC" as="fetch" type="application/wasm"></head>
+<body></body>
+</html>
